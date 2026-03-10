@@ -11,7 +11,8 @@ namespace SearchAlgorithms
 
             while (low <= high)
             {
-                int middleIndex = (low + high) / 2;
+                // Overflow-veilige berekening van het midden
+                int middleIndex = low + (high - low) / 2;
 
                 // Dit is het probleem! We kunnen niet zeggen list[middleIndex]
                 // We moeten vanaf het begin lopen om het midden te vinden

@@ -13,7 +13,9 @@ namespace SearchAlgorithms
             while (low <= high)
             {
                 // Bereken het midden van het huidige zoekgebied
-                int middle = (low + high) / 2;
+                // We gebruiken low + (high - low) / 2 in plaats van (low + high) / 2
+                // om integer overflow te voorkomen bij grote arrays
+                int middle = low + (high - low) / 2;
 
                 if (sortedArray[middle] == target)
                 {
